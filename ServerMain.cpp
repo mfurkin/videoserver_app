@@ -1,7 +1,7 @@
 
 #include <wtypes.h>
 #include <winbase.h>
-//#include "Server.h"
+
 #include "ServerMain.h"
 int main (int argc, char *argv[]) {
 	HMODULE hDll = LoadLibrary("videoserver_dll.dll");
@@ -10,7 +10,9 @@ int main (int argc, char *argv[]) {
 	}
 	else {
 		StartServerFuncType startServer;
+		DestroyServerFuncType destroyServer;
 		startServer = (StartServerFuncType) GetProcAddress(hDll, "startServer");
+		destroyServer = (DestroyServerFuncType)GetProcAddress(hDll,"destroyyServer");
 		if (startServer == NULL) {
 			std::wcout<<L"Could not start server"<<" error code= "<<GetLastError()<<"\n";
 		}
@@ -19,6 +21,7 @@ int main (int argc, char *argv[]) {
 			for (;;)
 			{
 			}
+			destroyServer();
 		}
 	}
 	return 0;
