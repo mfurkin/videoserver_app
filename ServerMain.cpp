@@ -17,7 +17,6 @@ int main (int argc, char *argv[]) {
 			std::wcout<<L"Could not start server"<<" error code= "<<GetLastError()<<"\n";
 		}
 		else {
-//			startServer();
 			for (;;)
 			{
 			}
