@@ -10,18 +10,18 @@ int main (int argc, char *argv[]) {
 	}
 	else {
 		StartServerFuncType startServer;
-		DestroyServerFuncType destroyServer;
+		StopServerFuncType stopServer;
 		startServer = (StartServerFuncType) GetProcAddress(hDll, "startServer");
-		destroyServer = (DestroyServerFuncType)GetProcAddress(hDll,"destroyyServer");
+		stopServer = (StopServerFuncType)GetProcAddress(hDll,"stopServer");
 		if (startServer == NULL) {
 			std::wcout<<L"Could not start server"<<" error code= "<<GetLastError()<<"\n";
 		}
 		else {
-			startServer();
+//			startServer();
 			for (;;)
 			{
 			}
-			destroyServer();
+			stopServer();
 		}
 	}
 	return 0;

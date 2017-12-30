@@ -9,8 +9,8 @@
 #define TESTS_SERVERMAIN_H_
 // #include "Server.h"
 #include <iostream>
-typedef void (*StartServerFuncType) ();
-typedef void (*DestroyServerFuncType) ();
+typedef void  (*StartServerFuncType) ();
+typedef void  (*StopServerFuncType) ();
 
 
 #endif /* TESTS_SERVERMAIN_H_ */
